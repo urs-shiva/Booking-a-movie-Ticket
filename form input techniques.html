@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript form input techniques</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script type="text/javascript">
+        function BookClick(){
+            document.getElementById("btnContainer").style.display="none";
+            document.getElementById("Summery Container").style.display="block";
+
+            document.getElementById("lblMovie").innerHTML=document.getElementById("lstMovie").value;
+            document.getElementById("lblDate").innerHTML=document.getElementById("lstDate").value;
+            document.getElementById("lblCinema").innerHTML=document.getElementById("lstCinema").value;
+            document.getElementById("lblTime").innerHTML=document.getElementById("lstTime").value;
+
+            poster=document.getElementById("imgPoster");
+            movie=document.getElementById("lstMovie").value;
+
+            if(movie=="Devara"){
+                poster.src="../public/images/book-Devara.jpg";
+            }
+            else if(movie=="The Wild Robot"){
+                poster.src="../public/images/book-The wild robot.jpg";
+            }
+            else if(movie=="Vettain"){
+                poster.src="../public/images/book-Vettain.jpg";
+            }
+            else{
+                poster.src="../public/images/book-Stree2.jpg";
+            }
+        }
+        function ModifyCloick(){
+            document.getElementById("title").innerHTML="Modify Booking";
+            document.getElementById("btnBook").innerHTML="Update";
+            document.getElementById("btnBook").className="btn btn-success";
+        }
+    </script>
+</head>
+<body class="container-fluid">
+    <div id="btnContainer">
+        <button data-bs-target="#booking" data-bs-toggle="modal" class="btn btn-primary">Quick Booking</button>
+    </div>
+    <div id="Summery Container" class="w-50 mt-3" style="display:none;">
+        <div class="bg-dark text-white p-2 d-fles justify-content-between">
+            <span>Booking Summery</span>
+            <span class="bi bi-ticket-fill"></span>
+        </div>
+        <div class="row my-3">
+            <div class="col-3">
+                <img height="200" width="100%" border="1" id="imgPoster">
+            </div>
+            <div class="col-9">
+                <dl class="row">
+                    <dt class="col-3">MOvie</dt>
+                    <dd class="col-9" id="lblMovie"></dd>
+                    <dt class="col-3">Date</dt>
+                    <dd class="col-9" id="lblDate"></dd>
+                    <dt class="col-3">Cinema</dt>
+                    <dd class="col-9" id="lblCinema"></dd>
+                    <dt class="col-3">Show Time</dt>
+                    <dd class="col-9" id="lblTime"></dd>
+                </dl>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between">
+            <button data-bs-target="#booking" onclick="ModifyCloick()"
+            data-bs-toggle="modal" class="btn btn-warning bi bi-printer-fill w-50">Modify Booking</button>
+            <a href="./form input techniques.html" class="btn btn-danger w-50">Cancel Booking</a>
+        </div>
+    </div>
+    <div class="modal fade" id="booking">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header bg-secondary text-white">
+                    <h2 id="title">Quick Booking</h2>
+                    <button class="btn btn-close bg-warning" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex justify-content-between p-2">
+                        <div>
+                            <select class="form-select" id="lstMovie">
+                                <option>Select Movie</option>
+                                <option>Devara</option>
+                                <option>The Wild Robot</option>
+                                <option>Vettain</option>
+                                <option>Stree2</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select  class="form-select" id="lstDate">
+                                <option>Select Date</option>
+                                <option>Today, 29 Oct</option>
+                                <option>Tomorrow, 30 Oct</option>
+                                <option>1st NOv</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select class="form-select" id="lstCinema">
+                                <option>Select Cinema</option>
+                                <option>konark</option>
+                                <option>Asian Ganga</option>
+                                <option>BVK multiplex, Lb nagar</option>
+                                <option>Prasad Imax</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select class="form-select" id="lstTime">
+                                <option>Select Time</option>
+                                <option>10:00 AM</option>
+                                <option>02:15 PM</option>
+                                <option>06:00 PM</option>
+                                <option>09:15 PM</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button onclick="BookClick()" id="btnBook" class="btn btn-danger" data-bs-dismiss="modal">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
